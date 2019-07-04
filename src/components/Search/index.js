@@ -6,6 +6,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
+const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -17,6 +21,7 @@ const CountryInput = styled.input`
   background: hsl(190, 40%, 98%);
   border-radius: 8px;
   font-size: 36px;
+  margin: 0 16px;
   ${media.phone`
     font-size: 28px;
   `}
@@ -71,7 +76,7 @@ const Search = ({ error, handleSearchForm }) => {
             <option value="Germany" />
           </datalist>
         </div>
-        <div style={{ alignSelf: 'flex-start' }}>
+        <ButtonsWrapper>
           <Button
             type="button"
             id="pm25"
@@ -102,7 +107,7 @@ const Search = ({ error, handleSearchForm }) => {
           <Button search type="submit" value="Search">
             Search
           </Button>
-        </div>
+        </ButtonsWrapper>
       </Form>
     </Wrapper>
   );
