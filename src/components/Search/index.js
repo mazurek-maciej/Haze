@@ -21,7 +21,6 @@ const CountryInput = styled.input`
   background: hsl(190, 40%, 98%);
   border-radius: 8px;
   font-size: 36px;
-  margin: 0 16px;
   ${media.phone`
     font-size: 28px;
   `}
@@ -65,6 +64,7 @@ const Search = ({ error, handleSearchForm }) => {
           }}
         >
           <CountryInput
+            type="text"
             placeholder="Country..."
             autoComplete="countries"
             list="countires"
