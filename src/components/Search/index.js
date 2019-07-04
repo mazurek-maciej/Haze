@@ -13,7 +13,6 @@ const Form = styled.form`
   color: hsl(200, 30%, 25%);
 `;
 const CountryInput = styled.input`
-  height: 48px;
   padding: 8px 16px;
   background: hsl(190, 40%, 98%);
   border-radius: 8px;
@@ -74,6 +73,7 @@ const Search = ({ error, handleSearchForm }) => {
         </div>
         <div style={{ alignSelf: 'flex-start' }}>
           <Button
+            type="button"
             id="pm25"
             value="PM2.5"
             active={param === 'pm25' && true}
@@ -82,6 +82,7 @@ const Search = ({ error, handleSearchForm }) => {
             PM2.5
           </Button>
           <Button
+            type="button"
             id="co"
             value="CO"
             active={param === 'co' && true}
@@ -90,6 +91,7 @@ const Search = ({ error, handleSearchForm }) => {
             CO
           </Button>
           <Button
+            type="button"
             value="NO2"
             id="no2"
             active={param === 'no2' && true}
