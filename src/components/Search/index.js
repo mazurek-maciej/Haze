@@ -22,7 +22,7 @@ const CountryInput = styled.input`
   border-radius: 8px;
   font-size: 36px;
   ${media.phone`
-    font-size: 28px;
+    font-size: 24px;
   `}
 `;
 const Button = styled.button`
