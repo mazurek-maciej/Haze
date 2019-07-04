@@ -14,7 +14,7 @@ const Form = styled.form`
 `;
 const CountryInput = styled.input`
   height: 48px;
-  padding: 8px;
+  padding: 8px 16px;
   background: hsl(190, 40%, 98%);
   border-radius: 8px;
   font-size: 36px;
@@ -22,7 +22,7 @@ const CountryInput = styled.input`
     font-size: 28px;
   `}
 `;
-const Button = styled.input`
+const Button = styled.button`
   padding: 4px 16px;
   border-radius: 4px;
   background: hsl(190, 40%, 98%);
@@ -59,7 +59,7 @@ const Search = ({ error, handleSearchForm }) => {
         >
           <CountryInput
             placeholder="Country..."
-            autoComplete="off"
+            autoComplete="countries"
             list="countires"
             value={country}
             onChange={e => setCountry(e.target.value)}
@@ -74,27 +74,32 @@ const Search = ({ error, handleSearchForm }) => {
         </div>
         <div style={{ alignSelf: 'flex-start' }}>
           <Button
-            type="button"
             id="pm25"
             value="PM2.5"
             active={param === 'pm25' && true}
             onClick={e => setParam(e.target.id)}
-          />
+          >
+            PM2.5
+          </Button>
           <Button
-            type="button"
             id="co"
             value="CO"
             active={param === 'co' && true}
             onClick={e => setParam(e.target.id)}
-          />
+          >
+            CO
+          </Button>
           <Button
-            type="button"
             value="NO2"
             id="no2"
             active={param === 'no2' && true}
             onClick={e => setParam(e.target.id)}
-          />
-          <Button search type="submit" value="Search" />
+          >
+            NO2
+          </Button>
+          <Button search type="submit" value="Search">
+            Search
+          </Button>
         </div>
       </Form>
     </Wrapper>
