@@ -38,6 +38,9 @@ const Button = styled.button`
   color: ${props => props.active && '#fff'};
   transition: background 0.2s;
   will-change: background;
+  ${media.phone`
+    padding: 4px 8px;
+  `}
 `;
 const Error = styled.span`
   color: #ffdbd1;
