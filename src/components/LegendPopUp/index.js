@@ -10,10 +10,11 @@ const Wrapper = styled.div`
   background: hsl(190, 15%, 95%);
   opacity: ${props => (props.active ? 1 : 0)};
   transform: ${props =>
-    props.active ? 'translateX(0)' : 'translateX(-300px)'};
+    props.active ? 'translateX(0)' : 'translateX(-400px)'};
   transition: opacity, transform, 0.5s ease-out;
   box-shadow: 0 0 15px hsla(190, 15%, 50%, 0.8);
   will-change: opacity, transform;
+  z-index: 1;
 `;
 const Parameter = styled.span`
   color: hsl(10, 60%, 60%);
