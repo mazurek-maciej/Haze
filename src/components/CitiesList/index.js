@@ -68,7 +68,7 @@ const CitiesList = ({ citiesList, fetchWikiData }) => {
                   <AccordinTopWrapper>
                     <H4>{city.city}</H4>
                     <div style={{ padding: '8px 0' }}>
-                      <Paramter>{city.parameter}: </Paramter>
+                      <Paramter>{city.parameter.toUpperCase()}: </Paramter>
                       <Paramter value>
                         {Math.round(city.value)}
                         {city.unit}
