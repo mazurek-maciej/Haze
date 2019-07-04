@@ -1,27 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { media } from '../../utils/media';
+import LegendPopUp from '../LegendPopUp';
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   align-self: flex-start;
   display: flex;
   flex-direction: column;
-  width: 100%;
   max-width: 400px;
-  padding: 0 8px;
+  padding: 0 16px;
   margin-top: 1.5rem;
+  ${media.phone`
+    margin-bottom: 1rem;
+  `}
 `;
 const H1 = styled.h1`
   font-size: 48px;
   font-weight: 300;
   line-height: 1.2;
-  color: hsl(0, 0%, 90%);
+  color: hsl(190, 50%, 90%);
+  ${media.phone`
+    font-size: 42px;
+  `}
 `;
 const Description = styled.span`
   font-size: 22px;
-  color: hsl(0, 0%, 80%);
+  color: hsl(190, 50%, 85%);
   span {
     color: hsl(10, 60%, 60%);
   }
+  ${media.phone`
+    font-size: 18px;
+  `}
 `;
 const Button = styled.button`
   padding: 6px 20px;
@@ -34,14 +44,19 @@ const Button = styled.button`
   margin: 8px 8px;
   transition: background 0.2s;
   will-change: background, box-shadow;
+  position: relative;
   &:hover,
   &:active {
     background: hsl(10, 60%, 63%);
     box-shadow: 0 2px 5px hsla(190, 20%, 30%, 0.8);
   }
+  ${media.phone`
+    padding: 4px 14px;
+  `}
 `;
 
 const Hero = () => {
+  const [activeLegend, setActiveLegend] = useState(false);
   return (
     <Wrapper>
       <H1>Check air condition in your country</H1>
@@ -49,7 +64,10 @@ const Hero = () => {
         Don't know what <span>Pm2.5</span> or <span>CO</span> mean?
       </Description>
       <div>
-        <Button>Find out!</Button>
+        <Button onClick={() => setActiveLegend(!activeLegend)}>
+          Find out!
+        </Button>
+        <LegendPopUp setActive={setActiveLegend} active={activeLegend} />
       </div>
     </Wrapper>
   );

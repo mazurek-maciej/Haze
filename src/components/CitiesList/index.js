@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import RenderCityDescription from './renderCity';
+import Loading from './loading';
+import { media } from '../../utils/media';
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,7 +15,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
 `;
 const Description = styled.p`
-  color: hsl(190, 30%, 80%);
+  color: hsl(190, 50%, 85%);
   text-align: center;
   font-size: 18px;
 `;
@@ -21,18 +24,24 @@ const AccordinTopWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 8px 4px;
+  ${media.phone`
+    padding: 4px;
+  `}
 `;
 const H4 = styled.h4`
   font-size: 1.5rem;
   font-weight: 700;
   color: hsl(190, 30%, 15%);
+  ${media.phone`
+    font-size: 1.2rem;
+  `}
 `;
 const Paramter = styled.span`
   font-size: 1.2rem;
-  color: hsl(190, 30%, 25%);
-`;
-const Value = styled(Paramter)`
-  color: hsl(0, 60%, 50%);
+  color: ${props => (props.value ? 'hsl(0, 60%, 50%)' : 'hsl(190, 30%, 25%)')};
+  ${media.phone`
+    font-size: 1rem;
+  `}
 `;
 
 const CitiesList = ({ citiesList, fetchWikiData }) => {
@@ -42,41 +51,40 @@ const CitiesList = ({ citiesList, fetchWikiData }) => {
     setExpanded(isExpanded ? city.city : false);
     fetchWikiData(city.city);
   };
-
   return (
     <Wrapper>
       <ul style={{ padding: '16px 16px' }}>
         {citiesList ? (
           citiesList.map(city => (
-            <ExpansionPanel
-              key={city.city}
-              style={{ marginBottom: '16px' }}
-              expanded={expanded === city.city}
-              onChange={handleChange(city)}
-            >
-              <ExpansionPanelSummary
-                expandIcon={<i className="material-icons">expand_more</i>}
+            <React.Fragment key={city.city}>
+              <ExpansionPanel
+                style={{ marginBottom: '16px' }}
+                expanded={expanded === city.city}
+                onChange={handleChange(city)}
               >
-                <AccordinTopWrapper>
-                  <H4>{city.city}</H4>
-                  <div style={{ padding: '8px 0' }}>
-                    <Paramter>{city.parameter}: </Paramter>
-                    <Value>
-                      {Math.round(city.value)}
-                      {city.unit}
-                    </Value>
-                  </div>
-                </AccordinTopWrapper>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
-                {city.description ? (
-                  <span>{city.description.slice(0, 300)}...</span>
-                ) : (
-                  // TODO:
-                  <span>loading</span>
-                )}
-              </ExpansionPanelDetails>
-            </ExpansionPanel>
+                <ExpansionPanelSummary
+                  expandIcon={<i className="material-icons">expand_more</i>}
+                >
+                  <AccordinTopWrapper>
+                    <H4>{city.city}</H4>
+                    <div style={{ padding: '8px 0' }}>
+                      <Paramter>{city.parameter}: </Paramter>
+                      <Paramter value>
+                        {Math.round(city.value)}
+                        {city.unit}
+                      </Paramter>
+                    </div>
+                  </AccordinTopWrapper>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  {city.description ? (
+                    <RenderCityDescription city={city} />
+                  ) : (
+                    <Loading />
+                  )}
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+            </React.Fragment>
           ))
         ) : (
           <Description>Select country and parameter</Description>

@@ -25,6 +25,7 @@ hr {
   margin: 0;
   padding: 0;
   line-height: 1.5;
+  color: hsl(190, 10%, 20%);
 }
 
 /* Removes discs from ul */

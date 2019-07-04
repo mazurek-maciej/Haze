@@ -1,20 +1,102 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import SearchInput from './search';
+import { media } from '../../utils/media';
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: hsl(200, 30%, 25%);
+`;
+const CountryInput = styled.input`
+  height: 48px;
+  padding: 8px;
+  background: hsl(190, 40%, 98%);
+  border-radius: 8px;
+  font-size: 36px;
+  ${media.phone`
+    font-size: 28px;
+  `}
+`;
+const Button = styled.input`
+  padding: 4px 16px;
+  border-radius: 4px;
+  background: hsl(190, 40%, 98%);
+  border: 1px solid hsl(190, 0%, 80%);
+  margin: 0 8px;
+  background: ${props => props.active && 'hsl(10, 60%, 60%)'};
+  background: ${props => props.search && 'hsl(240, 60%, 60%)'};
+  color: ${props => props.search && '#fff'};
+  color: ${props => props.active && '#fff'};
+  transition: background 0.2s;
+  will-change: background;
+`;
+const Error = styled.span`
+  color: #ffdbd1;
+  font-weight: 600;
+`;
 
-const Search = ({ handleSearchForm, inputValue, setInputValue }) => {
+const Search = ({ error, handleSearchForm }) => {
+  const [country, setCountry] = useState('');
+  const [param, setParam] = useState('pm25');
+  const handleForm = e => {
+    e.preventDefault();
+    handleSearchForm(country, param);
+  };
   return (
     <Wrapper>
-      <SearchInput
-        handleSearchForm={handleSearchForm}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-      />
+      <Form onSubmit={handleForm}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            marginBottom: '16px'
+          }}
+        >
+          <CountryInput
+            placeholder="Country..."
+            autoComplete="off"
+            list="countires"
+            value={country}
+            onChange={e => setCountry(e.target.value)}
+          />
+          {error && <Error>You need to select correct country!</Error>}
+          <datalist id="countires">
+            <option value="Poland" />
+            <option value="Spain" />
+            <option value="France" />
+            <option value="Germany" />
+          </datalist>
+        </div>
+        <div style={{ alignSelf: 'flex-start' }}>
+          <Button
+            type="button"
+            id="pm25"
+            value="PM2.5"
+            active={param === 'pm25' && true}
+            onClick={e => setParam(e.target.id)}
+          />
+          <Button
+            type="button"
+            id="co"
+            value="CO"
+            active={param === 'co' && true}
+            onClick={e => setParam(e.target.id)}
+          />
+          <Button
+            type="button"
+            value="NO2"
+            id="no2"
+            active={param === 'no2' && true}
+            onClick={e => setParam(e.target.id)}
+          />
+          <Button search type="submit" value="Search" />
+        </div>
+      </Form>
     </Wrapper>
   );
 };

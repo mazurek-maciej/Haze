@@ -1,70 +1,32 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Search from './components/Search';
-import CitiesList from './components/CitiesList';
-import Hero from './components/Hero';
-import { openaq, wiki, DATE } from './api';
-import bgCurve from './utils/images/background-curve.svg';
+import { openaq, wiki, reduceCountry, DATE } from '../../api';
+import Search from '../Search';
+import CitiesList from '../CitiesList';
+import Hero from '../Hero';
+import Footer from '../Footer';
+import { Background, BackgroundCurve } from './background';
+import { findIndex } from 'lodash';
 
 const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 `;
 const Wrapper = styled.div`
   width: 100%;
   max-width: 900px;
 `;
-const Background = styled.div`
-  width: 100%;
-  height: 60vh;
-  position: absolute;
-  z-index: -1;
-  background: rgb(44, 125, 131);
-  background: linear-gradient(
-    0deg,
-    rgba(44, 125, 131, 1) 0%,
-    rgba(56, 92, 117, 1) 100%
-  );
-`;
-const BackgroundCurve = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 40%;
-  bottom: 0;
-  background: url(${bgCurve});
-  background-size: cover;
-`;
 
 function App() {
   const [cities, setCities] = useState(null);
+  const [inputError, setInputError] = useState(false);
 
   const fetchOpenAQCities = async (value, param = 'pm25') => {
-    let country;
-
-    switch (value) {
-      case 'Poland': {
-        country = 'PL';
-        break;
-      }
-      case 'France': {
-        country = 'FR';
-        break;
-      }
-      case 'Spain': {
-        country = 'ES';
-        break;
-      }
-      case 'Germany': {
-        country = 'DE';
-        break;
-      }
-      default: {
-        country = 'PL';
-      }
-    }
+    setInputError(false);
+    let country = reduceCountry(value, setInputError);
     const res = await openaq(
       `?country=${country}&parameter=${param}&order_by=value&sort=desc&date_from=${DATE}`
     );
@@ -88,18 +50,24 @@ function App() {
     );
     const data = await res.data.query.pages;
     const wikiCity = await Object.values(data);
-    const updateCity = await cities.filter(item => {
-      if (item.city === city) {
-        item['description'] = wikiCity[0].extract;
-      }
-      return item;
-    });
-    setCities([...cities, updateCity]);
+    const test = await cities
+      .filter(item => item.city === city)
+      .map(item => ({
+        ...item,
+        description: wikiCity[0].extract,
+        url: wikiCity[0].fullurl,
+        thumbnail: wikiCity[0].thumbnail
+      }))
+      .map(item => item);
+    const ind = await findIndex(cities, { city: test[0].city });
+    await cities.splice(ind, 1, test[0]);
+    await setCities([...cities]);
   };
 
   const handleSearchForm = (country, param) => {
     fetchOpenAQCities(country, param);
   };
+
   return (
     <AppWrapper>
       <Background>
@@ -107,9 +75,10 @@ function App() {
       </Background>
       <Wrapper>
         <Hero />
-        <Search handleSearchForm={handleSearchForm} />
+        <Search error={inputError} handleSearchForm={handleSearchForm} />
         <CitiesList citiesList={cities} fetchWikiData={fetchWikiData} />
       </Wrapper>
+      <Footer />
     </AppWrapper>
   );
 }
