@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { openaq, wiki, reduceCountry, DATE } from '../../api';
 import Search from '../Search';
 import CitiesList from '../CitiesList';
@@ -8,12 +8,22 @@ import Footer from '../Footer';
 import { Background, BackgroundCurve } from './background';
 import { findIndex } from 'lodash';
 
+const anime = keyframes`
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+`;
+
 const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: 100vh;
+  animation: ${anime} 0.4s both;
 `;
 const Wrapper = styled.div`
   width: 100%;
@@ -59,8 +69,8 @@ function App() {
         thumbnail: wikiCity[0].thumbnail
       }))
       .map(item => item);
-    const ind = await findIndex(cities, { city: test[0].city });
-    await cities.splice(ind, 1, test[0]);
+    const cityIndex = await findIndex(cities, { city: test[0].city });
+    await cities.splice(cityIndex, 1, test[0]);
     await setCities([...cities]);
   };
 

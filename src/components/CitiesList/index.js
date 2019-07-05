@@ -1,11 +1,26 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import RenderCityDescription from './renderCity';
 import Loading from './loading';
 import { media } from '../../utils/media';
+
+const appear = keyframes`
+  0% { 
+    opacity: 0;
+    transform: translateY(-50px)
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+`;
+const Panel = styled(ExpansionPanel)`
+  animation: ${appear} 0.4s both;
+  animation-delay: ${props => `0.${props.delay + 1}s`};
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -53,14 +68,15 @@ const CitiesList = ({ citiesList, fetchWikiData }) => {
   };
   return (
     <Wrapper>
-      <ul style={{ padding: '16px 16px' }}>
+      <ul style={{ padding: '16px 16px', overflow: 'hidden' }}>
         {citiesList ? (
-          citiesList.map(city => (
+          citiesList.map((city, i) => (
             <React.Fragment key={city.city}>
-              <ExpansionPanel
+              <Panel
                 style={{ marginBottom: '16px' }}
                 expanded={expanded === city.city}
                 onChange={handleChange(city)}
+                delay={i}
               >
                 <ExpansionPanelSummary
                   expandIcon={<i className="material-icons">expand_more</i>}
@@ -83,7 +99,7 @@ const CitiesList = ({ citiesList, fetchWikiData }) => {
                     <Loading />
                   )}
                 </ExpansionPanelDetails>
-              </ExpansionPanel>
+              </Panel>
             </React.Fragment>
           ))
         ) : (
