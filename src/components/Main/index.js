@@ -33,8 +33,10 @@ const Wrapper = styled.div`
 function App() {
   const [cities, setCities] = useState(null);
   const [inputError, setInputError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchOpenAQCities = async (value, param = 'pm25') => {
+    setIsLoading(true);
     setInputError(false);
     let country = reduceCountry(value, setInputError);
     const res = await openaq(
@@ -51,6 +53,7 @@ function App() {
       .filter(city => unfilteredCities[city])
       .map(city => unfilteredCities[city])
       .splice(0, 10);
+    await setIsLoading(false);
     setCities(filteredCities);
   };
 
@@ -86,7 +89,7 @@ function App() {
       <Wrapper>
         <Hero />
         <Search error={inputError} handleSearchForm={handleSearchForm} />
-        <CitiesList citiesList={cities} fetchWikiData={fetchWikiData} />
+        <CitiesList citiesList={cities} isLoading={isLoading} fetchWikiData={fetchWikiData} />
       </Wrapper>
       <Footer />
     </AppWrapper>

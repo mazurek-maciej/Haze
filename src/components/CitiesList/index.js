@@ -5,6 +5,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import RenderCityDescription from './renderCity';
 import Loading from './loading';
+import Spinner from "./spinner";
 import { media } from '../../utils/media';
 
 const appear = keyframes`
@@ -59,7 +60,7 @@ const Paramter = styled.span`
   `}
 `;
 
-const CitiesList = ({ citiesList, fetchWikiData }) => {
+const CitiesList = ({ citiesList, fetchWikiData, isLoading }) => {
   const [expanded, setExpanded] = useState(false);
 
   const handleChange = city => (event, isExpanded) => {
@@ -68,44 +69,43 @@ const CitiesList = ({ citiesList, fetchWikiData }) => {
   };
   return (
     <Wrapper>
-      <ul style={{ padding: '16px 16px', overflow: 'hidden' }}>
-        {citiesList ? (
-          citiesList.map((city, i) => (
-            <React.Fragment key={city.city}>
-              <Panel
-                style={{ marginBottom: '16px' }}
-                expanded={expanded === city.city}
-                onChange={handleChange(city)}
-                delay={i}
-              >
-                <ExpansionPanelSummary
-                  expandIcon={<i className="material-icons">expand_more</i>}
+      <Description>Select country and parameter</Description>
+      {isLoading ? <Spinner/> : citiesList ? (
+        <ul style={{ padding: '16px 16px', overflow: 'hidden' }}>
+          {citiesList.map((city, i) => (
+              <React.Fragment key={city.city}>
+                <Panel
+                  style={{ marginBottom: '16px' }}
+                  expanded={expanded === city.city}
+                  onChange={handleChange(city)}
+                  delay={i}
                 >
-                  <AccordinTopWrapper>
-                    <H4>{city.city}</H4>
-                    <div style={{ padding: '8px 0' }}>
-                      <Paramter>{city.parameter.toUpperCase()}: </Paramter>
-                      <Paramter value>
-                        {Math.round(city.value)}
-                        {city.unit}
-                      </Paramter>
-                    </div>
-                  </AccordinTopWrapper>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  {city.description ? (
-                    <RenderCityDescription city={city} />
-                  ) : (
-                    <Loading />
-                  )}
-                </ExpansionPanelDetails>
-              </Panel>
-            </React.Fragment>
-          ))
-        ) : (
-          <Description>Select country and parameter</Description>
-        )}
-      </ul>
+                  <ExpansionPanelSummary
+                    expandIcon={<i className="material-icons">expand_more</i>}
+                  >
+                    <AccordinTopWrapper>
+                      <H4>{city.city}</H4>
+                      <div style={{ padding: '8px 0' }}>
+                        <Paramter>{city.parameter.toUpperCase()}: </Paramter>
+                        <Paramter value>
+                          {Math.round(city.value)}
+                          {city.unit}
+                        </Paramter>
+                      </div>
+                    </AccordinTopWrapper>
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails>
+                    {city.description ? (
+                      <RenderCityDescription city={city} />
+                    ) : (
+                      <Loading />
+                    )}
+                  </ExpansionPanelDetails>
+                </Panel>
+              </React.Fragment>
+            ))}
+        </ul>
+      ) : null}
     </Wrapper>
   );
 };
