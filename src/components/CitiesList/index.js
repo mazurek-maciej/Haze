@@ -21,6 +21,7 @@ const appear = keyframes`
 const Panel = styled(ExpansionPanel)`
   animation: ${appear} 0.4s both;
   animation-delay: ${props => `0.${props.delay + 1}s`};
+  margin-bottom: 16px;
 `;
 
 const Wrapper = styled.div`
@@ -30,6 +31,10 @@ const Wrapper = styled.div`
   max-width: 600px;
   margin: 0 auto;
 `;
+const UL = styled.ul`
+  padding: 16px;
+  overflow: hidden;
+`
 const Description = styled.p`
   color: hsl(190, 50%, 85%);
   text-align: center;
@@ -70,41 +75,40 @@ const CitiesList = ({ citiesList, fetchWikiData, isLoading }) => {
   return (
     <Wrapper>
       <Description>Select country and parameter</Description>
-      {isLoading ? <Spinner/> : citiesList ? (
-        <ul style={{ padding: '16px 16px', overflow: 'hidden' }}>
+      {isLoading ? <Spinner /> : citiesList ? (
+        <UL>
           {citiesList.map((city, i) => (
-              <React.Fragment key={city.city}>
-                <Panel
-                  style={{ marginBottom: '16px' }}
-                  expanded={expanded === city.city}
-                  onChange={handleChange(city)}
-                  delay={i}
+            <React.Fragment key={city.city}>
+              <Panel
+                expanded={expanded === city.city}
+                onChange={handleChange(city)}
+                delay={i}
+              >
+                <ExpansionPanelSummary
+                  expandIcon={<i className="material-icons">expand_more</i>}
                 >
-                  <ExpansionPanelSummary
-                    expandIcon={<i className="material-icons">expand_more</i>}
-                  >
-                    <AccordinTopWrapper>
-                      <H4>{city.city}</H4>
-                      <div style={{ padding: '8px 0' }}>
-                        <Paramter>{city.parameter.toUpperCase()}: </Paramter>
-                        <Paramter value>
-                          {Math.round(city.value)}
-                          {city.unit}
-                        </Paramter>
-                      </div>
-                    </AccordinTopWrapper>
-                  </ExpansionPanelSummary>
-                  <ExpansionPanelDetails>
-                    {city.description ? (
-                      <RenderCityDescription city={city} />
-                    ) : (
+                  <AccordinTopWrapper>
+                    <H4>{city.city}</H4>
+                    <div style={{ padding: '8px 0' }}>
+                      <Paramter>{city.parameter.toUpperCase()}: </Paramter>
+                      <Paramter value>
+                        {Math.round(city.value)}
+                        {city.unit}
+                      </Paramter>
+                    </div>
+                  </AccordinTopWrapper>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  {city.description ? (
+                    <RenderCityDescription city={city} />
+                  ) : (
                       <Loading />
                     )}
-                  </ExpansionPanelDetails>
-                </Panel>
-              </React.Fragment>
-            ))}
-        </ul>
+                </ExpansionPanelDetails>
+              </Panel>
+            </React.Fragment>
+          ))}
+        </UL>
       ) : null}
     </Wrapper>
   );

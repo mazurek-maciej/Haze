@@ -24,11 +24,18 @@ const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
+const TitleSpan = styled.span`
+  color: hsl(190, 15%, 20%);
+  font-weight: 600;
+`
 const Description = styled.span`
   font-size: 14px;
   color: ${props =>
     props.openaq ? 'hsl(10, 60%, 60%)' : 'hsl(190, 15%, 40%)'};
 `;
+const UL = styled.ul`
+  border-bottom: 1px solid hsl(190, 5%, 80%);
+`
 const HideButton = styled.button`
   display: flex;
   justify-content: center;
@@ -48,14 +55,14 @@ const LegendPopUp = ({ setActive, active }) => {
   return (
     <Wrapper active={active}>
       <TitleWrapper>
-        <span style={{ color: 'hsl(190, 15%, 20%)', fontWeight: '600' }}>
+        <TitleSpan>
           Legend
-        </span>
+        </TitleSpan>
         <HideButton onClick={() => setActive(false)}>
           <i className="material-icons">close</i>
         </HideButton>
       </TitleWrapper>
-      <ul style={{ borderBottom: '1px solid hsl(190, 5%, 80%)' }}>
+      <UL>
         <li>
           <Parameter>PM2.5 </Parameter>
           <Description>
@@ -90,7 +97,7 @@ const LegendPopUp = ({ setActive, active }) => {
             especially in determining ozone concentrations.
           </Description>
         </li>
-      </ul>
+      </UL>
       <Description openaq>
         Don't forget to check{' '}
         <ALink href="https://openaq.org" target="_blank">

@@ -16,6 +16,11 @@ const Form = styled.form`
   align-items: center;
   color: hsl(200, 30%, 25%);
 `;
+const FormInput = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+`
 const CountryInput = styled.input`
   padding: 8px 16px;
   background: hsl(190, 40%, 98%);
@@ -56,13 +61,7 @@ const Search = ({ error, handleSearchForm }) => {
   return (
     <Wrapper>
       <Form onSubmit={handleForm}>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            marginBottom: '16px'
-          }}
-        >
+        <FormInput>
           <CountryInput
             type="text"
             placeholder="Country..."
@@ -78,7 +77,7 @@ const Search = ({ error, handleSearchForm }) => {
             <option value="France" />
             <option value="Germany" />
           </datalist>
-        </div>
+        </FormInput>
         <ButtonsWrapper>
           <Button
             type="button"

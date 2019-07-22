@@ -1,28 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="805b8eb2-ebec-477e-ae58-0c1c0b4fddc8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/CitiesList/spinner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="805b8eb2-ebec-477e-ae58-0c1c0b4fddc8" name="Default Changelist" comment="Add loading state and spinner&#10;&#10;Added loading state(hook) while promise is still pending.&#10;Also added spinner informing that data is still loading for better UX.">
+      <change afterPath="$PROJECT_DIR$/../../../2018/08/React-Redux-Weather-App" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/08/ReduxSimpleStarter" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/08/Router-Redux-Blog-Tut" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/08/YouTube-Search" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/08/mazurek-maciej.github.io" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/10/Testing-github-api" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/10/first-contributions" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/GithubAPI-Users" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/.idea/github-api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/public/style/normalize.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/actions/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/components/Main/Profiles/fetched_users.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/components/Main/Profiles/styled-fetched_users.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/components/Main/Search/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/components/Main/Search/styled-search.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/components/Profile/profile_detail.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/components/Profile/profile_repos.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/components/Profile/styled-profile_detail.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/components/Profile/styled-profile_repos.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/containers/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/containers/githubUsers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/containers/styled-App.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/containers/styled-githubUsers.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/containers/styled-userProfile.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/containers/userProfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/reducers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/reducers/reducer_fetch-users.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/reducers/reducer_loading.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/reducers/reducer_page-number.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/resources/images/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/routes/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/serviceWorker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/github-api/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/11/nutrikon" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/12/Portfolio copy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2018/12/gatsby-starter-superstylin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../1/Portfolio" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../1/Portfolio-fuckedUp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../1/Tasty-PO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3/Nutrikon" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5/maissi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../6/notetaker" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../6/notetaker copy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../gitTraining" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CitiesList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CitiesList/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing-github-api/src/registerServiceWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../mazurek-maciej.github.io" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,23 +75,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/CitiesList/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1189">
-              <caret line="33" selection-start-line="33" selection-end-line="34" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Main/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="56" column="30" lean-forward="true" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
+            <state relative-caret-position="464">
+              <caret line="88" column="55" selection-start-line="88" selection-start-column="55" selection-end-line="88" selection-end-column="55" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -107,7 +135,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="100" />
+    <option name="x" value="99" />
     <option name="y" value="116" />
     <option name="width" value="1682" />
     <option name="height" value="1226" />
@@ -212,24 +240,32 @@
       <workItem from="1562057797109" duration="17016000" />
       <workItem from="1562083694461" duration="125000" />
       <workItem from="1562652142116" duration="80000" />
-      <workItem from="1563341398931" duration="1861000" />
+      <workItem from="1563341398931" duration="2458000" />
     </task>
+    <task id="LOCAL-00001" summary="Add loading state and spinner&#10;&#10;Added loading state(hook) while promise is still pending.&#10;Also added spinner informing that data is still loading for better UX.">
+      <created>1563343519180</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1563343519180</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19082000" />
+    <option name="totallyTimeSpent" value="19679000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="100" y="116" width="1682" height="1226" extended-state="0" />
-    <editor active="true" />
+    <frame x="99" y="116" width="1682" height="1226" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2643819" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2643819" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Messages" weight="0.32973945" />
+      <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.499388" weight="0.24168913" />
       <window_info anchor="bottom" id="GraphQL" order="1" weight="0.32973945" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.500612" side_tool="true" weight="0.32973945" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32973945" />
       <window_info anchor="bottom" id="Run" order="5" />
@@ -241,11 +277,15 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="3" side_tool="true" weight="0.32925338" />
+      <window_info active="true" anchor="right" id="Terminal" order="3" side_tool="true" visible="true" weight="0.32925338" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add loading state and spinner&#10;&#10;Added loading state(hook) while promise is still pending.&#10;Also added spinner informing that data is still loading for better UX." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add loading state and spinner&#10;&#10;Added loading state(hook) while promise is still pending.&#10;Also added spinner informing that data is still loading for better UX." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../../../../Reset CSS/reset.css">
@@ -317,20 +357,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CitiesList/index.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Main/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1189">
-          <caret line="33" selection-start-line="33" selection-end-line="34" />
+        <state relative-caret-position="453">
+          <caret line="56" column="30" lean-forward="true" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Main/index.js">
+    <entry file="file://$PROJECT_DIR$/src/components/CitiesList/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="56" column="30" lean-forward="true" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
+        <state relative-caret-position="464">
+          <caret line="88" column="55" selection-start-line="88" selection-start-column="55" selection-end-line="88" selection-end-column="55" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
